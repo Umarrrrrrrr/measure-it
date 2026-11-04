@@ -9,7 +9,7 @@ These targets are chosen before collecting results. The actual object and its re
 
 ## Evidence to fill from actual runs
 
-- Hardware: CPU, GPU, RAM, OS, camera model and resolution: **pending capture/setup**.
+- Hardware: Intel Core i5-7300U (4 logical CPUs), Intel HD Graphics 620, 15 GiB RAM, Arch Linux. Camera model and resolution: **pending capture**.
 - Calibration image count, camera matrix, distortion coefficients, mean and per-view reprojection errors: **pending calibration**.
 - Dataset image count, split counts, labelling tool and mask audit: **pending capture**.
 - Held-out mask IoU, mAP@0.5, mAP@0.5:0.95, precision and recall: **pending training and test**.
