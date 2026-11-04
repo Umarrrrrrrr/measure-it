@@ -4,7 +4,7 @@ Camera calibration, trained object segmentation, and metric measurement from a f
 
 ## Current status
 
-The Plan, Objectives, Definition of Done, and fixed split were committed first. Calibration, preparation, model training, evaluation, inference, and measurement scripts are implemented. They have only passed syntax checks; no end-to-end run is possible without the applicant's photos and measurements. The GitHub repository, PR, weights, and Loom are pending.
+The Plan, Objectives, Definition of Done, and fixed split were committed first. Calibration, preparation, model training, evaluation, inference, and measurement scripts are implemented. Three synthetic measurement checks pass; a one-epoch training and held-out evaluation smoke run also passed on synthetic data. These checks show that the code executes, **not** that the measurement system is accurate. No end-to-end run on the applicant's photos is possible yet. The GitHub repository, PR, real weights, and Loom are pending.
 
 ## Capture setup
 
@@ -18,7 +18,7 @@ The Plan, Objectives, Definition of Done, and fixed split were committed first. 
 
 ## Setup and commands
 
-Run from the repository root. Use Python 3.13 for the pinned packages on this machine.
+Run from the repository root. Use Python 3.13 for the pinned packages on this machine. The requirements install a CPU-only PyTorch build from the PyTorch package index.
 
 ```bash
 python3 -m venv .venv
@@ -32,6 +32,7 @@ python3 -m venv .venv
 .venv/bin/python -m inference.measure measurement/new_photo.jpg --marker-side-mm YOUR_MEASURED_MARKER
 .venv/bin/python -m measurement.accuracy measurement/ground_truth.csv --marker-side-mm YOUR_MEASURED_MARKER
 .venv/bin/python -m measurement.benchmark measurement/new_photo.jpg --marker-side-mm YOUR_MEASURED_MARKER
+.venv/bin/python -m unittest discover -s tests -v
 ```
 
 The inference command prints `object_not_found` or `reference_not_found` when either is missing. On success it prints width, height, confidence, and the overlay path. The larger measured side is called width and the smaller side height, independent of image orientation. The conversion requires the object and marker to be flat and coplanar. A tilted object invalidates this assumption.
