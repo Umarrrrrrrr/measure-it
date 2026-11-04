@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+.venv313/
+calibration/printables/
+calibration/camera.npz
+dataset/raw/
+dataset/images/
+dataset/masks/
+models/*.pt
+measurement/overlays/
+measurement/*overlay.png
+measurement/results.csv
