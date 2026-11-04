@@ -27,6 +27,7 @@ python3 -m venv .venv
 .venv/bin/python -m calibration.calibrate calibration/photos --square-mm YOUR_MEASURED_SQUARE
 .venv/bin/python -m dataset.prepare
 # Annotate the prepared images and place binary masks in dataset/masks/.
+.venv/bin/python -m dataset.audit
 .venv/bin/python -m models.train --epochs 30
 .venv/bin/python -m models.evaluate --checkpoint models/best.pt
 .venv/bin/python -m inference.measure measurement/new_photo.jpg --marker-side-mm YOUR_MEASURED_MARKER
