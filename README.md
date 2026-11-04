@@ -10,7 +10,7 @@ The Plan, Objectives, Definition of Done, and fixed split were committed first. 
 
 - **Object:** pending selection and physical measurement. Use one small, rigid, flat object that stays in the same plane as the marker.
 - **Camera:** pending model and resolution. Lock focus, zoom, and resolution before calibration, then keep them fixed.
-- **Computer:** pending CPU, GPU, RAM, and OS report from the actual run.
+- **Computer:** Intel Core i5-7300U (4 logical CPUs), Intel HD Graphics 620, 15 GiB RAM, Arch Linux. Training will use CPU unless a supported accelerator is available.
 - **Calibration:** print `calibration/printables/checkerboard_9x7_inner.png` on rigid backing. Measure one square with a calliper; take at least 20 varied checkerboard views at the locked camera settings. Keep the full board visible and avoid blur.
 - **Reference:** print `calibration/printables/aruco_4x4_id0.png`, mount flat and rigid, and measure the outer black square side. Put it next to the object in the same plane in every measurement image. Its border must be fully visible.
 - **Dataset:** photograph at least 70 different poses/backgrounds/light conditions of the object. Name raw images `001.jpg` through `070.jpg` under `dataset/raw/`. Assigning IDs fixes the committed 49 train / 14 validation / 7 test split; do not move them. Use CVAT, Label Studio, or similar to annotate the object's visible silhouette on the undistorted images. Export single-channel masks as `dataset/masks/001.png` through `070.png`, white object and black background. Record the labelling tool.
@@ -18,7 +18,7 @@ The Plan, Objectives, Definition of Done, and fixed split were committed first. 
 
 ## Setup and commands
 
-Run from the repository root. Python 3.11 or newer is recommended.
+Run from the repository root. Use Python 3.13 for the pinned packages on this machine.
 
 ```bash
 python3 -m venv .venv
